@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入echarts依赖包 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 准备一个容器：容器就是显示图标区域 -->
+    <div></div>
+</body>
+
+</html>
+<script>
+    //基于准备好的DOM初始化echarts实例
+    let dom = document.querySelector('div');
+    //创建echarts实例
+    let mycharts = echarts.init(dom);
+    //双坐标轴   意思是左边一个y轴，右边一个y轴，然后两个图用的是不同的参考系，一个用的左边的，一个用的右边的
+    mycharts.setOption({
+        title: {
+            text: "双坐标"
+        },
+        xAxis: {
+            data: ['游戏', '直播', '经济', '娱乐']
+        },
+        // 把两个y轴都显示出来
+        yAxis: [
+            {  //显示Y轴的线
+                axisLine: {
+                    show: true
+                },
+                //显示Y轴刻度
+                axisTick: {
+                    show: true
+                }
+            },
+            {
+                //显示Y轴的线
+                axisLine: {
+                    show: true
+                },
+                //显示Y轴刻度
+                axisTick: {
+                    show: true
+                }
+            }
+        ],
+        legend:{
+            data:['柱状图','折线图']
+        },
+        series: [
+            {
+                name:'折线图',
+                type: 'line',
+                data: [10, 20, 30, 40],
+                //代表这个折线图用的是上面 yAxis数组里面的第一个y轴，也就是index为0的y轴，左边的y轴
+                yAxisIndex:0
+            }
+            ,
+            {
+                name:'柱状图',
+                type: 'bar',
+                data: [6, 10, 80, 20],
+                //代表这个折线图用的是上面 yAxis数组里面的第二个y轴，也就是index为1的y轴，右边的y轴
+                yAxisIndex:1
+            }
+        ]
+    })
+</script>

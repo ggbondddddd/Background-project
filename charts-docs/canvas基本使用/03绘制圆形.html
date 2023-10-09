@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        canvas{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+     <canvas width="600" height="400"></canvas>
+</body>
+</html>
+<script>
+     //获取DOM
+     let canvas = document.querySelector('canvas');
+     //获取上下文
+     let ctx = canvas.getContext('2d');
+     //绘制圆形
+     ctx.beginPath();
+     //绘制圆形的方法：x、y, 这两个参数组成了圆心的坐标
+    // r:半径,
+    // 起始弧度、结束的弧度 弧度：360度等于2*PI*弧度, PI就是派的意思 圆里面的那个派
+    // 是否逆时针绘制  true就是是的意思
+     ctx.arc(100,100,50,0,2 * Math.PI,true);
+     //设置填充颜色
+     ctx.fillStyle = 'red';
+     ctx.fill();
+     //绘制圆形
+     ctx.stroke();
+
+     //绘制一个圆
+     ctx.beginPath();
+    //  所以这里的1弧度就等于360度除以2派约等于五十多度
+     ctx.arc(200,200,50,0,1,true);
+     ctx.stroke();
+</script>
