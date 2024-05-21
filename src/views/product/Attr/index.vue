@@ -5,6 +5,7 @@
       <!-- 三级联动全局组件 -->
       <CategorySelect @getCategoryId="getCategoryId" :show="!isShowTable">
       </CategorySelect>
+      <div v-if="false"></div>
     </el-card>
 
     <el-card>
